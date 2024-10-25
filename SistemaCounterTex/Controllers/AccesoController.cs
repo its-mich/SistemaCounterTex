@@ -37,7 +37,7 @@ namespace SistemaCounterTex.Controllers
             Usuario usuario = new Usuario()
             {
                 Correo = modelo.Correo,
-                Clave = modelo.Clave
+                Contraseña = modelo.Clave
             };
 
             await _counterTexDBContext.Usuarios.AddAsync(usuario);
@@ -64,7 +64,7 @@ namespace SistemaCounterTex.Controllers
             Usuario? usuario_encontrado = await _counterTexDBContext.Usuarios
                                           .Where(u =>
                                             u.Correo == modelo.Correo &&
-                                            u.Clave == modelo.Clave
+                                            u.Contraseña == modelo.Clave
                                           ).FirstOrDefaultAsync();
 
             if (usuario_encontrado == null)
