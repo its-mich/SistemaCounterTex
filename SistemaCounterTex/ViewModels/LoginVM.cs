@@ -2,7 +2,7 @@
 {
     public class LoginVM
     {
-        public string Correo { get; set; } = null!;
-        public string Clave { get; set; } = null!;
+        public string Correo { get; set; }
+        public string Clave { get; set; }
     }
 }

@@ -36,8 +36,9 @@ namespace SistemaCounterTex.Controllers
 
             Usuario usuario = new Usuario()
             {
+                NombreUsuario = modelo.NombreUsuario,
                 Correo = modelo.Correo,
-                Contraseña = modelo.Clave
+                Clave = modelo.Clave
             };
 
             await _counterTexDBContext.Usuarios.AddAsync(usuario);
@@ -64,7 +65,7 @@ namespace SistemaCounterTex.Controllers
             Usuario? usuario_encontrado = await _counterTexDBContext.Usuarios
                                           .Where(u =>
                                             u.Correo == modelo.Correo &&
-                                            u.Contraseña == modelo.Clave
+                                            u.Clave == modelo.Clave
                                           ).FirstOrDefaultAsync();
 
             if (usuario_encontrado == null)
@@ -75,10 +76,10 @@ namespace SistemaCounterTex.Controllers
             
             List<Claim> claims = new List<Claim>() 
             {
-                new Claim(ClaimTypes.Name, usuario_encontrado.NombreCompleto)
+                new Claim(ClaimTypes.Name, usuario_encontrado.NombreUsuario)
             };
 
-            ClaimsIdentity claimsidentity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
             AuthenticationProperties properties = new AuthenticationProperties() 
             {
                 AllowRefresh = true,
@@ -86,7 +87,7 @@ namespace SistemaCounterTex.Controllers
 
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsidentity),
+                new ClaimsPrincipal(claimsIdentity),
                 properties
                 );
             return RedirectToAction("Index", "Home");

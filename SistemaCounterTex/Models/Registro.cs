@@ -1,14 +1,20 @@
-﻿ namespace SistemaCounterTex.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SistemaCounterTex.Models
 {
     public class Registro
     {
-        public int RegistroId { get; set; }
-        public string Nombres { get; set; } = null!;
-        public string Apellidos { get; set; } = null!;
+        public int IdRegistro { get; set; }
+
+        [Required]
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
         public int Documento { get; set; } 
-        public string Correo { get; set; } = null!;
-        public string Contraseña { get; set; } = null!;
-        public string ConfirmarContraseña { get; set; } = null!;
+        public string Correo { get; set; }
+        public string Contraseña { get; set; }
+        public string ConfirmarContraseña { get; set; }
+
+        public DateTime FechaRegistro { get; set; }
 
     }
 }
