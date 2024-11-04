@@ -1,10 +1,15 @@
-﻿namespace SistemaCounterTex.ViewModels
+﻿using SistemaCounterTex.Models;
+
+namespace SistemaCounterTex.ViewModels
 {
     public class UsuarioVM
     {
-        public string NombreCompleto { get; set; } = null!;
-        public string Correo { get; set; } = null!;
-        public string Clave { get; set; } = null!;
-        public string ConfirmarClave { get; set; } = null!;
+        public string NombreUsuario { get; set; } 
+        public string Correo { get; set; }
+        public string Clave { get; set; }
+        public string ConfirmarClave { get; set; }
+
+        // Relaciones
+        public ICollection<Satelite> Satelites { get; set; }
     }
 }

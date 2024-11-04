@@ -39,7 +39,7 @@ namespace SistemaCounterTex.Controllers
         public async Task<IActionResult> Salir()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return View();
+            return RedirectToAction("Login","Acceso");
         }
     }
 }

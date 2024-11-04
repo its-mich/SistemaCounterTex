@@ -1,15 +1,9 @@
-﻿using SistemaCounterTex.Models;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace SistemaCounterTex.Models
+﻿namespace SistemaCounterTex.Models
 {
     public class PerfilAdministrador
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public int IdAdministrador { get; set; }
+
         public string? NombreAdministrador { get; set; }
         public int ProduccionDiaria { get; set; }
         public int ProduccionMensual { get; set; }
@@ -27,6 +21,6 @@ namespace SistemaCounterTex.Models
 
         // Relaciones
         public int IdUsuario { get; set; }
-        public Usuario Usuario { get; set; } = null!;
+        public Usuario Usuario { get; set; }
     }
 }
