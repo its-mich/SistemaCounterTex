@@ -1,6 +1,6 @@
 ﻿using SistemaCounterTex.Models;
 
-namespace SistemaCounterTex.Controllers.repositories.interfaz
+namespace SistemaCounterTex.Data.interfaz
 {
     public interface ISatelite
     {
