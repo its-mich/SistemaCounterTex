@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace SistemaCounterTex.Controllers
 {
+
+    [Route("api/[controller]")]
+    [ApiController]
     public class AccesoController : Controller
     {
         private readonly CounterTexDBContext _counterTexDBContext;

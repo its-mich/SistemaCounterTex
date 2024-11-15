@@ -1,0 +1,46 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SistemaCounterTex.Data.interfaz;
+using SistemaCounterTex.Models;
+
+namespace SistemaCounterTex.Controllers
+{
+    public class Usuarioscontroller : Controller
+    {
+        private readonly IUsuarios _usuarios;
+
+        public Usuarioscontroller(IUsuarios usuarios)
+        {
+            _usuarios = usuarios;
+        }
+
+        [HttpGet("GetUsuarios")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<IActionResult> GetUsuarios()
+        {
+            var response = await _usuarios.GetUsuarios();
+            return Ok(response);
+        }
+
+        [HttpPost("PostUsuarios")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PostUsuarios([FromBody] Usuario usuarios)
+        {
+            try
+            {
+                var response = await _usuarios.PostUsuarios(usuarios);
+                if (response == true)
+                    return Ok("bienvenido ingresaste correctamente");
+                else
+                    return BadRequest(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    }
+}
+
