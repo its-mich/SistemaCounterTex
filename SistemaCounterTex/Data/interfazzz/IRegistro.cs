@@ -8,5 +8,6 @@ namespace SistemaCounterTex.Data.interfaz
         Task<bool> PostRegistro(Registro registro);
         Task<bool> PutRegistro(Registro registro);
         Task<bool> DeleteRegistro(Satelite satelite);
+        Task<bool> DeleteRegistro(int id);
     }
 }

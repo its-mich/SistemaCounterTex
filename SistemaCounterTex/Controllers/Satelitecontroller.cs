@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Win32;
 using SistemaCounterTex.Data.interfaz;
 using SistemaCounterTex.Models;
 
@@ -44,7 +45,25 @@ namespace SistemaCounterTex.Controllers
                 }
             }
 
-        
+
+        [HttpDelete("DeleteSatelite/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteSatelite(int id)
+        {
+            try
+            {
+                var response = await _satelite.DeleteSatelite(id);
+                if (response == true)
+                    return Ok("Perfil eliminado correctamente");
+                else
+                    return BadRequest("Error al eliminar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
     }
 }

@@ -8,6 +8,6 @@ namespace SistemaCounterTex.Data.interfaz
         Task<bool> PostUsuarios(Usuario usuarios);
         Task<bool> PutUsuarios(Usuario usuarios);
         Task<bool> DeleteUsuarios(Usuario usuarios);
-
+        Task<bool> DeleteUsuarios(int id);
     }
 }

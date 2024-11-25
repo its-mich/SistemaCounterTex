@@ -8,6 +8,6 @@ namespace SistemaCounterTex.Data.interfaz
         Task<bool> PostEmpleado(PerfilEmpleado perfilEmpleado);
         Task<bool> PutEmpleado(PerfilEmpleado perfilEmpleado);
         Task<bool> DeleteEmpleado(PerfilEmpleado perfilEmpleado);
-
+        Task<bool> DeleteEmpleado(int id);
     }
 }
