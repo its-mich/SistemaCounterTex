@@ -62,6 +62,25 @@ namespace SistemaCounterTex.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPut("PutUsuarios")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutUsuarios([FromBody] Usuario usuarios)
+        {
+            try
+            {
+                var response = await _usuarios.PutUsuarios(usuarios);
+                if (response == true)
+                    return Ok("Perfil actualizado correctamente");
+                else
+                    return BadRequest("Error al actualizar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
 

@@ -64,5 +64,24 @@ namespace SistemaCounterTex.Controllers
             }
         }
 
+        [HttpPut("PutEmpleado")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutEmpleado([FromBody] PerfilEmpleado empleado)
+        {
+            try
+            {
+                var response = await _empleado.PutEmpleado(empleado);
+                if (response == true)
+                    return Ok("Perfil actualizado correctamente");
+                else
+                    return BadRequest("Error al actualizar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

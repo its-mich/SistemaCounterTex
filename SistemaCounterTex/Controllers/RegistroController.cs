@@ -64,6 +64,27 @@ namespace SistemaCounterTex.Controllers
             }
         }
 
+
+        [HttpPut("PutRegistro")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutRegistro([FromBody] Registro registro)
+        {
+            try
+            {
+                var response = await _registro.PutRegistro(registro);
+                if (response == true)
+                    return Ok("Perfil actualizado correctamente");
+                else
+                    return BadRequest("Error al actualizar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
     }
 
 }

@@ -65,5 +65,26 @@ namespace SistemaCounterTex.Controllers
             }
         }
 
+
+        [HttpPut("PutSatelite")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutSatelite([FromBody] Satelite satelite)
+        {
+            try
+            {
+                var response = await _satelite.PutSatelite(satelite);
+                if (response == true)
+                    return Ok("Perfil actualizado correctamente");
+                else
+                    return BadRequest("Error al actualizar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
     }
 }

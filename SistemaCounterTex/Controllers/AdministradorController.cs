@@ -62,6 +62,25 @@ namespace SistemaCounterTex.Controllers
             }
         }
 
+        [HttpPut("PutAdministrador")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutAdministrador([FromBody] PerfilAdministrador administrador)
+        {
+            try
+            {
+                var response = await _administrador.PutAdministrador(administrador);
+                if (response == true)
+                    return Ok("Perfil actualizado correctamente");
+                else
+                    return BadRequest("Error al actualizar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
     }

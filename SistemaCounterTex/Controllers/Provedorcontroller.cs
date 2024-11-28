@@ -64,11 +64,33 @@ namespace SistemaCounterTex.Controllers
             }
         }
 
+
+        [HttpPut("PutProveedor")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> PutProveedor([FromBody] Proveedor provedor)
+        {
+            try
+            {
+                var response = await _provedor.PutProveedor(provedor);
+                if (response == true)
+                    return Ok("Perfil actualizado correctamente");
+                else
+                    return BadRequest("Error al actualizar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 
-
-
-
-
-
+    
 }
+
+
+
+
+
+
