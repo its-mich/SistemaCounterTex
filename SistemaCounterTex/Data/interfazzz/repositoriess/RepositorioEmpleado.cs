@@ -35,5 +35,10 @@ namespace SistemaCounterTex.Data.repositories
             await context.SaveChangesAsync();
             return true;
         }
+
+        public Task<bool> DeleteEmpleado(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

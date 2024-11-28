@@ -36,5 +36,9 @@ namespace SistemaCounterTex.Data.repositoriess
             return true;
         }
 
+        public Task<bool> DeleteUsuarios(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

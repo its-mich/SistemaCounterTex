@@ -40,5 +40,10 @@ namespace SistemaCounterTex.Data.repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> DeleteRegistro(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

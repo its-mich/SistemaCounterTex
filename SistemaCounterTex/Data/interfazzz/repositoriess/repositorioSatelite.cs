@@ -40,5 +40,10 @@ namespace SistemaCounterTex.Data.repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> DeleteSatelite(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

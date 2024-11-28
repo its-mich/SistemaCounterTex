@@ -35,5 +35,10 @@ namespace SistemaCounterTex.Data.repositories
             await context.SaveChangesAsync();
             return true;
         }
+
+        public Task<bool> DeleteProveedor(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

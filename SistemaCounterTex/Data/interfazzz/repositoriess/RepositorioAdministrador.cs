@@ -4,7 +4,7 @@ using SistemaCounterTex.Models;
 
 namespace SistemaCounterTex.Data.repositories
 {
-    public class RepositorioAdministrador : IAdministrador
+    public class RepositorioAdministrador :IAdministrador
     {
         private readonly CounterTexDBContext context;
         public RepositorioAdministrador(CounterTexDBContext context)
@@ -33,6 +33,11 @@ namespace SistemaCounterTex.Data.repositories
             context.PerfilAdministradores.Remove(perfilAdministrador);
             await context.SaveChangesAsync();
             return true;
+        }
+
+        public Task<bool> DeleteAdministrador(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
