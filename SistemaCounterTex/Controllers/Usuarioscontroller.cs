@@ -41,6 +41,27 @@ namespace SistemaCounterTex.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpDelete("DeleteUsuarios/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteUsuarios(int id)
+        {
+            try
+            {
+                var response = await _usuarios.DeleteUsuarios
+                    (id);
+                if (response == true)
+                    return Ok("Perfil eliminado correctamente");
+                else
+                    return BadRequest("Error al eliminar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
 

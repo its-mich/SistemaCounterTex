@@ -9,8 +9,7 @@ namespace SistemaCounterTex.Data.interfaz
         Task<bool> PostSatelite(Satelite satelite);
         Task<bool> PutSatelite(Satelite satelite);
         Task<bool> DeleteSatelite(Satelite satelite);
-
-
+        Task<bool> DeleteSatelite(int id);
     }
 
 }

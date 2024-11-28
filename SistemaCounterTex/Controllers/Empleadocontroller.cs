@@ -42,6 +42,27 @@ namespace SistemaCounterTex.Controllers
                     return BadRequest(ex.Message);
                 }
             }
-        
+
+
+
+        [HttpDelete("DeleteEmpleado/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteEmpleado(int id)
+        {
+            try
+            {
+                var response = await _empleado.DeleteEmpleado(id);
+                if (response == true)
+                    return Ok("Perfil eliminado correctamente");
+                else
+                    return BadRequest("Error al eliminar el perfil");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
